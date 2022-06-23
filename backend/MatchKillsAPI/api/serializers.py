@@ -74,3 +74,4 @@ class ABTestSerializer(serializers.ModelSerializer):
             "parent_mlalgorithm_1",
             "parent_mlalgorithm_2",
             )
+            
