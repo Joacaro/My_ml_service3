@@ -14,3 +14,5 @@ class ApiConfig(AppConfig):
     modelDTR = joblib.load(MODEL_FILE)
     MODEL_FILE = os.path.join(settings.MODELS, "improved_linear_regression.joblib")
     modelILR = joblib.load(MODEL_FILE)
+    MODEL_FILE = os.path.join(settings.MODELS, "KNN.joblib")
+    modelKNN = joblib.load(MODEL_FILE)

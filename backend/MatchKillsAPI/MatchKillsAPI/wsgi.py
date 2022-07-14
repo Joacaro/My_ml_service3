@@ -50,8 +50,17 @@ try:
                             algorithm_status="production",
                             algorithm_version="0.0.1",
                             owner="Jose Caro",
-                            algorithm_description="Linear Regression with boosting with preprocessing",
+                            algorithm_description="Linear Regression with boosting and preprocessing",
                             algorithm_code=inspect.getsource(MatchKillsILR))
+    registry.add_algorithm(endpoint_name="Match Kills K Nearest Neighbors",
+                            algorithm_object=ILR,
+                            algorithm_name="K Nearest Neighbors",
+                            algorithm_status="production",
+                            algorithm_version="0.0.1",
+                            owner="Oscar Quezada",
+                            algorithm_description="KNN with preprocessing",
+                            algorithm_code=inspect.getsource(MatchKillsILR))
+
 
 except Exception as e:
     print("Exception while loading the algorithms to the registry,", str(e))

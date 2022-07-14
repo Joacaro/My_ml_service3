@@ -2,7 +2,7 @@ from django.urls import re_path as url
 from django.urls import path
 from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
-from .views import MatchKillsLR, MatchKillsDTR, MatchKillsILR
+from .views import MatchKillsLR, MatchKillsDTR, MatchKillsILR, MatchKillsKNN
 
 from api.views import EndpointViewSet
 from api.views import MLAlgorithmViewSet
@@ -28,6 +28,9 @@ urlpatterns = [
     ),
      url(
         r"^api/v1/MatchKillsILR/predict$", MatchKillsILR.as_view(), name="predict"
+    ),
+    url(
+        r"^api/v1/MatchKillsKNN/predict$", MatchKillsKNN.as_view(), name="predict"
     ),
     url(
         r"^api/v1/stop_ab_test/(?P<ab_test_id>.+)", StopABTestView.as_view(), name="stop_ab"

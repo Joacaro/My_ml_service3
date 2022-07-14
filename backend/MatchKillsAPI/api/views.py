@@ -109,6 +109,18 @@ class MatchKillsILR(APIView):
         response_dict = {"Predicted MatchKills": predicted_MatchKills}
         return Response(response_dict, status=200)
 
+class MatchKillsKNN(APIView):
+    def post(self, request):
+        data = request.data
+        MatchFlankKills = data['MatchFlankKills'] 
+        MatchAssists = data['MatchAssists'] 
+        MatchHeadshots= data['MatchHeadshots']
+        KNN_model = ApiConfig.modelKNN
+        predicted_MatchKills = KNN_model.predict([[MatchFlankKills, MatchAssists, MatchHeadshots]])
+        predicted_MatchKills = np.round(predicted_MatchKills, 0)
+        response_dict = {"Predicted MatchKills": predicted_MatchKills}
+        return Response(response_dict, status=200)
+
 class ABTestViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet,
     mixins.CreateModelMixin, mixins.UpdateModelMixin
